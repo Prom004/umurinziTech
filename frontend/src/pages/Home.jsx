@@ -174,7 +174,7 @@ const Home = () => {
       </div>
 
       {/* Who Can Use Section */}
-      <div className="bg-white py-24">
+      <div className="bg-white py-24" id='services'>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Who Can Use This Platform?</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -196,20 +196,30 @@ const Home = () => {
       </div>
 
       {/* Success Stories Section */}
-      <div className="bg-gray-50 py-24">
+        <div className="bg-gray-50 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Success Stories</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+            <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Success Stories</h2>
+            <div className="grid md:grid-cols-3 gap-8">
             {successStories.map((story, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-sm">
-                <h3 className="font-bold text-xl text-gray-900 mb-4">{story.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{story.description}</p>
-                <div className="text-purple-600 font-semibold">{story.metrics}</div>
-              </div>
+                <div
+                key={index}
+                className="bg-white p-6 rounded-lg shadow-sm border-l-4"
+                style={{
+                    borderImage: "linear-gradient(to bottom, #6B46C1, #343264) 1",
+                    borderRadius: 15,
+                    borderImageSlice: 1,
+                }}
+                >
+                <p className="text-gray-500 italic mb-4 leading-relaxed">
+                    "{story.description}"
+                </p>
+                <div className="text-[#343264] font-medium">{story.owner}</div>
+                </div>
             ))}
-          </div>
+            </div>
         </div>
-      </div>
+        </div>
+
 
       {/* Footer */}
     </div>

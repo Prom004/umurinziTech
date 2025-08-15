@@ -7,19 +7,18 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import RegisterPage from './pages/RegisterPage'
 
-
 function App() {
-
   return (
     <Router>
       <Header />
-      <div className='min-h-screen bg-white'>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<LoginPage />}/>
-        <Route path='/signup' element={<SignupPage />}/>
-        <Route path='/registerDevice' element={<RegisterPage />}/>
-      </Routes>
+      {/* Add padding-top to push content below header */}
+      <div className='min-h-screen bg-white pt-16'> {/* Adjust pt-16 based on your header height */}
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<LoginPage />}/>
+          <Route path='/signup' element={<SignupPage />}/>
+          <Route path='/registerDevice' element={<RegisterPage />}/>
+        </Routes>
       </div>
       <Footer />
     </Router>
