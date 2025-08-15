@@ -1,29 +1,25 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Menu, X } from 'lucide-react'
-import { href, Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import logo from '../assets/img/logo.png'
-import RegisterPage from "../pages/RegisterPage";
 
-
-export default function Header({transparent = false}){
-     
-    const [currentPage, setCurrentPage] = useState('home');
+export default function Header({ transparent = false }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
 
-    
     const navigationItems = [
-        { id: 'home', label: 'Home', href: '#' },
-        { id: 'about', label: 'About Us', href: '#' },
-        { id: 'services', label: 'Services', href: '#' },
-        { id: 'how-it-works', label: 'How It Works', href: '#' },
-        { id: 'registerDevices', label: 'Register Device', href: {RegisterPage} },
+        { id: 'home', label: 'Home', href: '/' },
+        { id: 'about', label: 'About Us', href: '/about' },
+        { id: 'services', label: 'Services', href: '/services' },
+        { id: 'how-it-works', label: 'How It Works', href: '/how-it-works' },
+        { id: 'registerDevices', label: 'Register Device', href: '/registerDevice' },
     ];
 
 
     return(
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled || !transparent ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+      scrolled || !transparent ? 'bg-white/70 backdrop-blur-sm shadow-sm' : 'bg-transparent'
     }`}>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -34,13 +30,13 @@ export default function Header({transparent = false}){
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navigationItems.map((item) => (
-                <Link to={href}
+                <Link 
                   key={item.id}
-                  onClick={() => setCurrentPage(item.id)}
+                  to={item.href}
                   className={`px-3 py-2 text-sm font-medium transition-colors ${
-                    currentPage === item.id 
-                      ? 'text-purple-600 border-b-2 border-purple-600' 
-                      : 'text-gray-700 hover:text-purple-600'
+                    location.pathname === item.href 
+                      ? 'text-[#343264] border-b-2 border-[#343264]' 
+                      : 'text-gray-700 hover:text-[#343264]'
                   }`}
                 >
                   {item.label}
@@ -50,12 +46,12 @@ export default function Header({transparent = false}){
           </div>
           
           <div className="hidden md:flex items-center space-x-4">
-            <button className="text-gray-700 hover:text-purple-600 border border-[#343264] rounded-lg px-3 py-0.5 text-sm font-medium">
+            <Link to="/login" className="text-gray-700 hover:text-purple-600 border border-[#343264] rounded-lg px-3 py-0.5 text-sm font-medium">
               LOGIN
-            </button>
-            <button className="bg-purple-600 text-white border border-[#343264] rounded-lg px-3 py-0.5  text-sm font-medium hover:bg-purple-700 transition-colors">
+            </Link>
+            <Link to="/signup" className="bg-purple-600 text-white border border-[#343264] rounded-lg px-3 py-0.5  text-sm font-medium hover:bg-purple-700 transition-colors">
               SIGN UP
-            </button>
+            </Link>
           </div>
           
           <div className="md:hidden">
@@ -72,24 +68,22 @@ export default function Header({transparent = false}){
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-50">
               {navigationItems.map((item) => (
-                <button
+                <Link
                   key={item.id}
-                  onClick={() => {
-                    setCurrentPage(item.id);
-                    setMobileMenuOpen(false);
-                  }}
+                  to={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
                   className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-100 w-full text-left"
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
               <div className="pt-4 pb-3 border-t border-gray-200">
-                <button className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600 w-full text-left">
+                <Link to="/login" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600 w-full text-left">
                   LOGIN
-                </button>
-                <button className="block px-3 py-2 text-base font-medium bg-purple-600 text-white rounded-md mx-3 mt-2 hover:bg-purple-700">
+                </Link>
+                <Link to="/signup" className="block px-3 py-2 text-base font-medium bg-purple-600 text-white rounded-md mx-3 mt-2 hover:bg-purple-700">
                   SIGN UP
-                </button>
+                </Link>
               </div>
             </div>
           </div>

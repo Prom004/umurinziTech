@@ -13,12 +13,14 @@ function App() {
   return (
     <Router>
       <Header />
+      <div className='min-h-screen bg-white'>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<LoginPage />}/>
         <Route path='/signup' element={<SignupPage />}/>
         <Route path='/registerDevice' element={<RegisterPage />}/>
       </Routes>
+      </div>
       <Footer />
     </Router>
   )

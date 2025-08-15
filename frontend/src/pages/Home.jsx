@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import { Shield, Building, Users, Eye, ChevronRight, Menu, X, Lock, Search, FileText, AlertTriangle } from 'lucide-react';
+import heroImage from '../assets/img/hero-image.png'
+import { BsBank, BsCart4 } from "react-icons/bs";
+import { Shield, Building, Users, Eye, ChevronRight, Menu, X, Lock, Search, FileText, AlertTriangle, User, ShoppingCart } from 'lucide-react';
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -9,43 +9,47 @@ const Home = () => {
 
   const benefits = [
     {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Protect your personal devices by registering them and reporting found or lost assets. Easily report all suspicious activities."
+      icon: <User className="w-8 h-8" />,
+      title: "For Individuals",
+      content: "Protect your personal devices by registering them and reporting them if lost or stolen. Secure proof of ownership."
     },
     {
-      icon: <Building className="w-8 h-8" />,
-      title: "Manage all organizational wisdom including, data, facts, financials, budgets, and website management effectively."
+      icon: <BsBank className="w-8 h-8" />,
+      title: "For Institutions",
+      content: "Manage all organizational devices efficiently. Track ownership, transfers, and maintain comprehensive device inventory."
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Quickly verify device ownership, track down files, and increase investigation speed with enhanced tools and analytics."
+      title: "For Law Enforcement",
+      content: "Quickly verify device ownership, track stolen items, and accelerate investigation processes with reliable data."
     },
     {
-      icon: <Eye className="w-8 h-8" />,
-      title: "Get Insights"
+      icon: <BsCart4 className="w-8 h-8" />,
+      title: "For Buyers",
+      content: "Verify device legitimacy before purchase. Check if a device is reported stolen and ensure safe transactions."
     }
   ];
 
   const howItWorks = [
     {
       step: "1",
-      title: "Register on our platform",
-      description: "Register with your desired email and get your device details including WiFi, MAC address, any suspicious device frequency."
+      title: "Create an Account",
+      description: "Register with your national ID and verify your identity through our secure system."
     },
     {
       step: "2", 
-      title: "Register → Protect Devices",
-      description: "Transfer ownership, report lost devices, access a secure identity-based resource."
+      title: "Register or Search a Device",
+      description: "Add your device details including IMEI, serial numbers, and ownership documentation."
     },
     {
       step: "3",
-      title: "Manage Suspicious Behavior",
-      description: "Check suspicious device behavior or track any malicious software files."
+      title: "Manage Transfers or Reports",
+      description: "Transfer ownership, report lost/stolen devices, or update device status as needed."
     },
     {
       step: "4",
-      title: "Verify Ownership",
-      description: "Verify device ownership and get instant security notifications."
+      title: "Verify Device Status",
+      description: "Check ownership history, theft reports, and verify legitimacy before transactions."
     }
   ];
 
@@ -78,24 +82,21 @@ const Home = () => {
 
   const successStories = [
     {
-      title: "Enhanced Security Implementation",
-      description: "Successfully implemented comprehensive device tracking across multiple government institutions, resulting in 95% reduction in asset loss.",
-      metrics: "95% Asset Recovery"
+      description: "\"We successfully recovered three stolen laptops using this system within 48 hours. The verification process is seamless and reliable.\"",
+      owner: "— Investigation Officer"
     },
     {
-      title: "University Campus Protection", 
-      description: "Deployed campus-wide security monitoring system covering 50,000+ devices and ensuring student safety protocols.",
-      metrics: "50,000+ Devices"
+      description: "\"Our school's 200+ devices are now fully traceable. The system has eliminated equipment loss and improved our asset management significantly.\"",
+      owner: "— IT Manager, Public University"
     },
     {
-      title: "Corporate Asset Management",
-      description: "Streamlined business operations with real-time device monitoring and automated compliance reporting systems.",
-      metrics: "Real-time Monitoring"
+      description: "\"As a electronics retailer, this platform has increased customer confidence. They can verify device authenticity before purchase.\"",
+      owner: "— Electronics Store Owner"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800">
+    <div className="min-h-screen bg-gradient-to-br from-[#8D8DC7] via-[#8c8cce] to-[#8D8DC7]">
       
       {/* Hero Section */}
       <div className="relative overflow-hidden">
@@ -119,31 +120,18 @@ const Home = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                <button className="bg-[#343264] text-[#ffffff] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 hover:text-black transition-colors">
                   Register your device
                 </button>
-                <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                <button className="border-2 border-[#343264] text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">
                   We're a lifestyle
                 </button>
               </div>
             </div>
             
             <div className="relative">
-              <div className="grid grid-cols-3 gap-4">
-                {[...Array(9)].map((_, i) => (
-                  <div
-                    key={i}
-                    className={`aspect-square rounded-xl flex items-center justify-center text-white text-2xl font-bold ${
-                      i === 4 
-                        ? 'bg-blue-500 ring-4 ring-white shadow-2xl scale-110' 
-                        : 'bg-purple-500 bg-opacity-60'
-                    }`}
-                  >
-                    {i === 4 ? <Shield className="w-12 h-12" /> : <Lock className="w-8 h-8" />}
-                  </div>
-                ))}
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent rounded-xl"></div>
+              <img src={heroImage} alt="Hero Image" />
+              {/* <div className="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent rounded-xl"></div> */}
             </div>
           </div>
         </div>
@@ -156,10 +144,11 @@ const Home = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="text-center space-y-4">
-                <div className="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto text-indigo-600">
+                <div className="bg-[#343264] w-16 h-16 rounded-full flex items-center justify-center mx-auto text-white">
                   {benefit.icon}
                 </div>
-                <p className="text-gray-700 leading-relaxed">{benefit.title}</p>
+                <p className="text-gray-700 leading-relaxed font-semibold">{benefit.title}</p>
+                <p className='text-gray-700 leading-relaxed'> {benefit.content}</p>
               </div>
             ))}
           </div>
@@ -170,10 +159,10 @@ const Home = () => {
       <div className="bg-gray-50 py-24" id='how-it-works'>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">How It Works</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {howItWorks.map((step, index) => (
               <div key={index} className="text-center space-y-4">
-                <div className="bg-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto text-xl font-bold">
+                <div className="bg-[#343264] text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto text-xl font-bold">
                   {step.step}
                 </div>
                 <h3 className="font-semibold text-gray-900">{step.title}</h3>
