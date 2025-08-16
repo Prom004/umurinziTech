@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import signUp from '../assets/img/signup-image.png'
-import { Eye, EyeOff, Shield, Smartphone, User, Lock, CheckCircle, Settings, Cloud } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
@@ -34,7 +34,7 @@ export default function SignupPage() {
         <div className="bg-white rounded-l-2xl shadow-xl p-8 w-full">
           <h1 className="text-3xl font-bold text-gray-800 mb-8">Sign Up</h1>
           
-          <div className="space-y-6">
+          <div className="space-y-3">
             {/* Name Fields */}
             <div className="grid grid-cols-2 gap-4">
               <div>
@@ -46,7 +46,7 @@ export default function SignupPage() {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   required
                 />
               </div>
@@ -59,7 +59,7 @@ export default function SignupPage() {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   required
                 />
               </div>
@@ -75,7 +75,7 @@ export default function SignupPage() {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                 required
               />
             </div>
@@ -91,7 +91,7 @@ export default function SignupPage() {
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full p-2 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   required
                 />
                 <button
@@ -115,7 +115,7 @@ export default function SignupPage() {
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full p-2 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   required
                 />
                 <button
@@ -194,39 +194,15 @@ export default function SignupPage() {
       {/* </div> */}
 
       {/* Right Side - Illustration and Content */}
-      <div className="flex bg-gradient-to-br from-indigo-600 to-purple-700 items-center justify-center p-8 text-white rounded-r-2xl">
+      <div className="flex flex-col bg-gradient-to-br from-indigo-600 to-purple-700 items-center justify-center text-white rounded-r-2xl">
+        <h2 className="text-2xl font-semibold mb-[40px] ml-[250px] flex justify-end items-end">UmirinziTech</h2>
         <div className="max-w-lg text-center">
-          <h2 className="text-2xl font-bold mb-8">UmirinziTech</h2>
           {/* Brand Name */}
           
           {/* Illustration Area */}
           <div className="mb-8">
 
             <img src={signUp} alt="" />
-            {/* Phone Mockup */}
-            {/* <div className="relative mx-auto w-48 h-80 bg-indigo-800 rounded-3xl p-4 shadow-2xl transform rotate-3">
-              
-            </div> */}
-            
-            {/* Person Silhouette
-            <div className="absolute -left-8 bottom-0">
-              <div className="w-16 h-24 bg-white rounded-t-full relative">
-                <div className="w-8 h-8 bg-white rounded-full absolute -top-4 left-4" />
-              </div>
-            </div> */}
-            
-            {/*  */}
-            
-            {/* Floating Elements */}
-            {/* <div className="absolute top-4 left-8">
-              <Cloud className="w-8 h-8 text-purple-300 opacity-70" />
-            </div>
-            <div className="absolute top-8 right-12">
-              <Settings className="w-6 h-6 text-purple-300 opacity-70" />
-            </div>
-            <div className="absolute bottom-12 right-8">
-              <div className="w-4 h-4 bg-purple-300 rounded-full opacity-70" />
-            </div> */}
           </div>
 
           {/* Main Heading */}
