@@ -1,26 +1,101 @@
-import { useState } from 'react'
+// import { useState } from 'react'
+// import Home from './pages/Home'
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+// import Header from './components/Header'
+// import Footer from './components/Footer'
+// import LoginPage from './pages/LoginPage'
+// import SignupPage from './pages/SignupPage'
+// import RegisterPage from './pages/RegisterPage'
+
+// function App() {
+//   return (
+//     <Router>
+//       <Header />
+//       <div className='min-h-screen bg-white pt-16'>
+//         <Routes>
+//           <Route path='/' element={<Home />} />
+//           <Route path='/login' element={<LoginPage />}/>
+//           <Route path='/signup' element={<SignupPage />}/>
+//           <Route path='/registerDevice' element={<RegisterPage />}/>
+//         </Routes>
+//       </div>
+//       <Footer />
+//     </Router>
+//   )
+// }
+
+// export default App
+
+import React, { useState } from 'react'
 import Home from './pages/Home'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import RegisterPage from './pages/RegisterPage'
 
+// Component to handle conditional rendering of Header and Footer
+function Layout({ children }) {
+  const location = useLocation();
+  
+  // Define routes where Header and Footer should be hidden
+  const hideHeaderFooterRoutes = ['/login', '/signup'];
+  
+  // Check if current route should hide header/footer
+  const shouldHideHeaderFooter = hideHeaderFooterRoutes.includes(location.pathname);
+
+  return (
+    <>
+      {/* Conditionally render Header */}
+      {!shouldHideHeaderFooter && <Header />}
+      
+      {/* Main content with conditional padding */}
+      <div className={`min-h-screen bg-white ${!shouldHideHeaderFooter ? 'pt-16' : ''}`}>
+        {children}
+      </div>
+      
+      {/* Conditionally render Footer */}
+      {!shouldHideHeaderFooter && <Footer />}
+    </>
+  );
+}
+
+// ScrollToAnchor component for handling anchor links
+function ScrollToAnchor() {
+  const location = useLocation();
+  
+  React.useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          const headerHeight = 64;
+          const elementPosition = element.offsetTop - headerHeight;
+          window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+  }, [location]);
+  
+  return null;
+}
+
 function App() {
   return (
     <Router>
-      <Header />
-      {/* Add padding-top to push content below header */}
-      <div className='min-h-screen bg-white pt-16'> {/* Adjust pt-16 based on your header height */}
+      <Layout>
+        <ScrollToAnchor />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<LoginPage />}/>
           <Route path='/signup' element={<SignupPage />}/>
           <Route path='/registerDevice' element={<RegisterPage />}/>
         </Routes>
-      </div>
-      <Footer />
+      </Layout>
     </Router>
   )
 }
