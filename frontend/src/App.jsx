@@ -8,20 +8,6 @@ import SignupPage from './pages/SignupPage'
 import RegisterPage from './pages/RegisterPage'
 
 
-function App() {
-
-  return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<LoginPage />}/>
-        <Route path='/signup' element={<SignupPage />}/>
-        <Route path='/registerDevice' element={<RegisterPage />}/>
-      </Routes>
-      <Footer />
-    </Router>
-  )
+export default function App() {
+	return null;
 }
-
-export default App
