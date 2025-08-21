@@ -97,8 +97,8 @@ export default function Header({ transparent = false }) {
                                         to={item.href}
                                         className={`px-3 py-2 text-sm font-medium transition-colors ${
                                             isItemActive(item)
-                                                ? 'text-[#343264] border-b-2 border-[#343264]' 
-                                                : 'text-gray-700 hover:text-[#343264]'
+                                                ? 'text-primary border-b-2 border-primary' 
+                                                : 'text-gray-700 hover:text-primary'
                                         }`}
                                     >
                                         {item.label}
@@ -110,8 +110,8 @@ export default function Header({ transparent = false }) {
                                         onClick={(e) => handleNavigation(item, e)}
                                         className={`px-3 py-2 text-sm font-medium transition-colors cursor-pointer ${
                                             isItemActive(item)
-                                                ? 'text-[#343264] border-b-2 border-[#343264]' 
-                                                : 'text-gray-700 hover:text-[#343264]'
+                                                ? 'text-primary border-b-2 border-primary' 
+                                                : 'text-gray-700 hover:text-primary'
                                         }`}
                                     >
                                         {item.label}
@@ -122,10 +122,10 @@ export default function Header({ transparent = false }) {
                     </div>
                     
                     <div className="hidden md:flex items-center space-x-4">
-                        <Link to="/login" className="text-gray-700 hover:text-purple-600 border border-[#343264] rounded-lg px-3 py-0.5 text-sm font-medium">
+                        <Link to="/login" className="text-gray-700 hover:text-purple-600 border border-primary rounded-lg px-3 py-0.5 text-sm font-medium">
                             LOGIN
                         </Link>
-                        <Link to="/signup" className="bg-purple-600 text-white border border-[#343264] rounded-lg px-3 py-0.5 text-sm font-medium hover:bg-purple-700 transition-colors">
+                        <Link to="/signup" className="bg-purple-600 text-white border border-primary rounded-lg px-3 py-0.5 text-sm font-medium hover:bg-purple-700 transition-colors">
                             SIGN UP
                         </Link>
                     </div>
@@ -177,5 +177,5 @@ export default function Header({ transparent = false }) {
                 )}
             </div>
         </nav>
-    )
+    );
 }

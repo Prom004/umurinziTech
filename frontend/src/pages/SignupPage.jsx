@@ -27,7 +27,7 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="bg-[#8D8DC7]">
+    <div className="bg-secondary">
     <div className='grid grid-cols-2 m-auto p-16'>
       {/* Left Side - Form */}
       {/* <div className="flex items-center justify-center p-8"> */}
@@ -194,7 +194,7 @@ export default function SignupPage() {
       {/* </div> */}
 
       {/* Right Side - Illustration and Content */}
-      <div className="flex flex-col bg-gradient-to-br from-[#726fae] to-[#343264] items-center justify-center text-white rounded-r-2xl">
+      <div className="flex flex-col bg-gradient-to-br from-accent to-primary items-center justify-center text-white rounded-r-2xl">
         <h2 className="text-2xl font-semibold mb-[40px] ml-[250px] flex justify-end items-end">UmirinziTech</h2>
         <div className="max-w-lg text-center">
           {/* Brand Name */}

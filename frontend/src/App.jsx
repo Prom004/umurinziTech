@@ -1,19 +1,27 @@
 import React, { useState } from 'react'
-import Home from './pages/Home'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Home from './pages/Home'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import RegisterPage from './pages/RegisterPage'
-import PageRouter from './routes/PageRouter'
+import MyDevices from './pages/MyDevices'
+import Dashboard from './pages/Dashboard'
+import VerifyDevice from './pages/VerifyDevice'
+import TransferOwnership from './pages/TransferOwnership'
+import ReportLostStolen from './pages/ReportLostStolen'
+import DeviceHistory from './pages/DeviceHistory'
+import ProfileSettings from './pages/ProfileSettings'
+import Notifications from './pages/Notifications'
+import HelpSupport from './pages/HelpSupport'
 
 // Component to handle conditional rendering of Header and Footer
 function Layout({ children }) {
   const location = useLocation();
   
   // Define routes where Header and Footer should be hidden
-  const hideHeaderFooterRoutes = ['/login', '/signup', '/registerDevice'];
+  const hideHeaderFooterRoutes = ['/login', '/signup', '/registerDevice', '/myDevices', '/dashboard', '/verifyDevice', '/transferOwnership', '/reportLostStolen', '/deviceHistory', '/profileSettings', '/notifications', '/helpSupport', '/logout'];
   
   // Check if current route should hide header/footer
   const shouldHideHeaderFooter = hideHeaderFooterRoutes.includes(location.pathname);
@@ -64,9 +72,19 @@ function App() {
         <ScrollToAnchor />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/login' element={<LoginPage />}/>
-          <Route path='/signup' element={<SignupPage />}/>
-          <Route path='/registerDevice' element={<RegisterPage />}/>
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/signup' element={<SignupPage />} />
+          <Route path='/registerDevice' element={<RegisterPage />} />
+          <Route path='/myDevices' element={<MyDevices />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/verifyDevice' element={<VerifyDevice />} />
+          <Route path='/transferOwnership' element={<TransferOwnership />} />
+          <Route path='/reportLostStolen' element={<ReportLostStolen />} />
+          <Route path='/deviceHistory' element={<DeviceHistory />} />
+          <Route path='/profileSettings' element={<ProfileSettings />} />
+          <Route path='/notifications' element={<Notifications />} />
+          <Route path='/helpSupport' element={<HelpSupport />} />
+          
         </Routes>
       </Layout>
     </Router>
@@ -74,3 +92,6 @@ function App() {
 }
 
 export default App
+// export default function App() {
+// 	return null;
+// }

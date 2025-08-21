@@ -96,7 +96,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#8D8DC7] via-[#8c8cce] to-[#8D8DC7]">
+    <div className="min-h-screen bg-gradient-to-br from-secondary via-secondary to-secondary">
       
       {/* Hero Section */}
       <div className="relative overflow-hidden">
@@ -120,10 +120,10 @@ const Home = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-[#343264] text-[#ffffff] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 hover:text-black transition-colors">
+                <button className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 hover:text-black transition-colors">
                   Register your device
                 </button>
-                <button className="border-2 border-[#343264] text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                <button className="border-2 border-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">
                   We're a lifestyle
                 </button>
               </div>
@@ -144,7 +144,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="text-center space-y-4">
-                <div className="bg-[#343264] w-16 h-16 rounded-full flex items-center justify-center mx-auto text-white">
+                <div className="bg-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto text-white">
                   {benefit.icon}
                 </div>
                 <p className="text-gray-700 leading-relaxed font-semibold">{benefit.title}</p>
@@ -162,7 +162,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {howItWorks.map((step, index) => (
               <div key={index} className="text-center space-y-4">
-                <div className="bg-[#343264] text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto text-xl font-bold">
+                <div className="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto text-xl font-bold">
                   {step.step}
                 </div>
                 <h3 className="font-semibold text-gray-900">{step.title}</h3>
@@ -205,7 +205,7 @@ const Home = () => {
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-sm border-l-4"
                 style={{
-                    borderImage: "linear-gradient(to bottom, #6B46C1, #343264) 1",
+                    borderImage: `linear-gradient(to bottom, rgb(var(--color-accent)), rgb(var(--color-primary))) 1`,
                     borderRadius: 15,
                     borderImageSlice: 1,
                 }}
@@ -213,7 +213,7 @@ const Home = () => {
                 <p className="text-gray-500 italic mb-4 leading-relaxed">
                     "{story.description}"
                 </p>
-                <div className="text-[#343264] font-medium">{story.owner}</div>
+                <div className="text-primary font-medium">{story.owner}</div>
                 </div>
             ))}
             </div>
