@@ -96,7 +96,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-secondary via-secondary to-secondary">
+    <div className="min-h-screen bg-[#8D8DC7] bg-gradient-to-br from-secondary via-secondary to-secondary">
       
       {/* Hero Section */}
       <div className="relative overflow-hidden">
@@ -143,7 +143,7 @@ const Home = () => {
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Key Benefits</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="text-center space-y-4">
+              <div key={index} className="text-center space-y-4 bg-[#F7FBFD] p-3 rounded-2xl sh">
                 <div className="bg-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto text-white">
                   {benefit.icon}
                 </div>

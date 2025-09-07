@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import logo from '../assets/img/logo.png'
 import SideBar from '../components/SideBar'
 import InfoPanel from '../components/InfoPanel';
+import PopMessage from '../components/PopMessage';
+// import { } from 'heroicons'
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -16,7 +17,9 @@ const RegisterPage = () => {
     declaration: false
   });
 
-  const [uploadedFile, setUploadedFile] = useState(null);
+  const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [uploadedId, setUploadedId] = useState(null);
+  const [popupMessage, setPopupMessage] = useState({ isOpen: false, message: '', type: 'success' });
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -29,7 +32,14 @@ const RegisterPage = () => {
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setUploadedFile(file);
+      setUploadedFiles(prev => [...prev, file]);
+    }
+  };
+
+  const handleIdUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setUploadedId(file);
     }
   };
 
@@ -40,11 +50,23 @@ const RegisterPage = () => {
     const emptyFields = requiredFields.filter(field => !formData[field]);
     
     if (emptyFields.length > 0 || !formData.declaration) {
-      alert('Please fill in all required fields and accept the declaration.');
+      setPopupMessage({ 
+        isOpen: true, 
+        message: 'Please fill in all required fields and accept the declaration.', 
+        type: 'error' 
+      });
       return;
     }
     // use a popup message for this
-    alert('Device registered successfully! You will receive a confirmation email shortly.');
+    setPopupMessage({ 
+      isOpen: true, 
+      message: 'Device registered successfully! You will receive a confirmation email shortly.', 
+      type: 'success' 
+    });
+  };
+
+  const closePopup = () => {
+    setPopupMessage({ isOpen: false, message: '', type: 'success' });
   };
 
   return (
@@ -62,7 +84,7 @@ const RegisterPage = () => {
             </span>
             Register Your Device
           </h1>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-gray-500 leading-relaxed">
             Add your electronic device to the national registry. This helps prevent theft, 
             aids investigations, and proves ownership.
           </p>
@@ -225,39 +247,84 @@ const RegisterPage = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-3">
                       Upload Receipt / Invoice / Box Label
                     </label>
-                    <div 
-                      className={`border-2 border-dashed rounded-xl p-8 text-center transition-all duration-200 cursor-pointer ${
-                        uploadedFile 
-                          ? 'border-green-300 bg-green-50' 
-                          : 'border-gray-300 bg-gray-50 hover:border-indigo-400 hover:bg-indigo-50'
-                      }`}
-                      onClick={() => document.getElementById('fileInput').click()}
-                    >
-                      {uploadedFile ? (
-                        <>
-                          <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl">
-                            ✓
-                          </div>
-                          <p className="font-semibold text-green-700">{uploadedFile.name}</p>
-                          <p className="text-green-600 text-sm mt-1">File uploaded successfully</p>
-                        </>
-                      ) : (
-                        <>
-                          <div className="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl">
-                            📎
-                          </div>
-                          <p className="font-semibold text-gray-700">Click to upload or drag and drop</p>
-                          <p className="text-gray-500 text-sm mt-1">PDF, JPG, PNG - Max 5MB</p>
-                        </>
-                      )}
-                    </div>
-                    <input
-                      id="fileInput"
-                      type="file"
-                      onChange={handleFileUpload}
-                      accept=".pdf,.jpg,.jpeg,.png"
-                      className="hidden"
-                    />
+                                         <div 
+                       className={`border-2 border-dashed rounded-xl p-8 text-center transition-all duration-200 cursor-pointer ${
+                         uploadedFiles.length > 0 
+                           ? 'border-green-300 bg-green-50' 
+                           : 'border-gray-300 bg-gray-50 hover:border-indigo-400 hover:bg-indigo-50'
+                       }`}
+                       onClick={() => document.getElementById('receiptFileInput').click()}
+                     >
+                       {uploadedFiles.length > 0 ? (
+                         <>
+                           <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl">
+                             ✓
+                           </div>
+                           <div className="space-y-2">
+                             {uploadedFiles.map((file, index) => (
+                               <div key={index} className="bg-white rounded-lg p-2">
+                                 <p className="font-semibold text-green-700 text-sm">{file.name}</p>
+                               </div>
+                             ))}
+                           </div>
+                           <p className="text-green-600 text-sm mt-2">{uploadedFiles.length} file(s) uploaded</p>
+                         </>
+                       ) : (
+                         <>
+                           <div className="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl">
+                             📎
+                           </div>
+                           <p className="font-semibold text-gray-700">Click to upload or drag and drop</p>
+                           <p className="text-gray-500 text-sm mt-1">PDF, JPG, PNG - Max 5MB</p>
+                         </>
+                       )}
+                     </div>
+                     <input
+                       id="receiptFileInput"
+                       type="file"
+                       onChange={handleFileUpload}
+                       accept=".pdf,.jpg,.jpeg,.png"
+                       className="hidden"
+                     />
+                  </div>
+                  <br />
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
+                      Upload Your National Id
+                    </label>
+                                         <div 
+                       className={`border-2 border-dashed rounded-xl p-8 text-center transition-all duration-200 cursor-pointer ${
+                         uploadedId 
+                           ? 'border-green-300 bg-green-50' 
+                           : 'border-gray-300 bg-gray-50 hover:border-indigo-400 hover:bg-indigo-50'
+                       }`}
+                       onClick={() => document.getElementById('idFileInput').click()}
+                     >
+                       {uploadedId ? (
+                         <>
+                           <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl">
+                             ✓
+                           </div>
+                           <p className="font-semibold text-green-700">{uploadedId.name}</p>
+                           <p className="text-green-600 text-sm mt-1">File uploaded successfully</p>
+                         </>
+                       ) : (
+                         <>
+                           <div className="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl">
+                             📎
+                           </div>
+                           <p className="font-semibold text-gray-700">Click to upload or drag and drop</p>
+                           <p className="text-gray-500 text-sm mt-1">PDF, JPG, PNG - Max 5MB</p>
+                         </>
+                       )}
+                     </div>
+                     <input
+                       id="idFileInput"
+                       type="file"
+                       onChange={handleIdUpload}
+                       accept=".pdf,.jpg,.jpeg,.png"
+                       className="hidden"
+                     />
                   </div>
                 </div>
 
@@ -311,6 +378,14 @@ const RegisterPage = () => {
           </div>
         </div>
       </div>
+      
+      {/* Popup Message */}
+      <PopMessage 
+        isOpen={popupMessage.isOpen}
+        message={popupMessage.message}
+        type={popupMessage.type}
+        onClose={closePopup}
+      />
     </div>
   );
 };

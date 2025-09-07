@@ -84,7 +84,6 @@ function App() {
           <Route path='/profileSettings' element={<ProfileSettings />} />
           <Route path='/notifications' element={<Notifications />} />
           <Route path='/helpSupport' element={<HelpSupport />} />
-          
         </Routes>
       </Layout>
     </Router>
@@ -92,6 +91,4 @@ function App() {
 }
 
 export default App
-// export default function App() {
-// 	return null;
-// }
+
