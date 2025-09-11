@@ -46,12 +46,12 @@ export default function Sidebar({ activeItem = "register" }) {
           label: "Transfer Ownership",
           href: "/transferOwnership",
         },
-        {
-          id: "report",
-          icon: <Siren />,
-          label: "Report Lost/Stolen",
-          href: "/reportLostStolen",
-        },
+        // {
+        //   id: "report",
+        //   icon: <Siren />,
+        //   label: "Report Lost/Stolen",
+        //   href: "/reportLostStolen",
+        // },
         {
           id: "history",
           icon: <History />,
