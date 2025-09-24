@@ -79,7 +79,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/verifyDevice' element={<VerifyDevice />} />
           <Route path='/transferOwnership' element={<TransferOwnership />} />
-          {/* <Route path='/reportLostStolen' element={<ReportLostStolen />} /> */}
+          <Route path='/reportLostStolen' element={<ReportLostStolen />} />
           <Route path='/deviceHistory' element={<DeviceHistory />} />
           <Route path='/profileSettings' element={<ProfileSettings />} />
           <Route path='/notifications' element={<Notifications />} />

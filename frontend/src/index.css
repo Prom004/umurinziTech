@@ -6,6 +6,18 @@
 	--color-accent: 114 111 174; /* #726fae */
 	--color-primary-hex: #343264;
 	--color-secondary-hex: #8D8DC7;
+	--color-accent-hex: #726fae;
+
+	/* Derived shades for hover/active states */
+	--color-primary-600: #2d2b58;
+	--color-secondary-600: #7b7bb0;
+	--color-accent-600: #635f96;
+
+	/* Semantic roles (can be tuned later) */
+	--color-surface: #ffffff;
+	--color-surface-muted: #f7f7fb;
+	--color-text: #111827;
+	--color-text-muted: #6b7280;
 }
 
 @layer utilities {
@@ -19,10 +31,47 @@
 	.text-accent { --tw-text-opacity: 1; color: rgb(var(--color-accent) / var(--tw-text-opacity)); }
 	.border-accent { --tw-border-opacity: 1; border-color: rgb(var(--color-accent) / var(--tw-border-opacity)); }
 
+	/* Text on colored backgrounds */
+	.text-on-primary { color: #ffffff; }
+	.text-on-secondary { color: #ffffff; }
+	.text-on-accent { color: #ffffff; }
+
+	/* Surfaces */
+	.bg-surface { background-color: var(--color-surface); }
+	.bg-surface-muted { background-color: var(--color-surface-muted); }
+	.text-body { color: var(--color-text); }
+	.text-muted { color: var(--color-text-muted); }
+
 	.from-primary { --tw-gradient-from: rgb(var(--color-primary) / 1) var(--tw-gradient-from-position); --tw-gradient-to: rgb(var(--color-primary) / 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
 	.via-secondary { --tw-gradient-via: rgb(var(--color-secondary) / 1) var(--tw-gradient-via-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to); }
 	.to-primary { --tw-gradient-to: rgb(var(--color-primary) / 1) var(--tw-gradient-to-position); }
 	.from-accent { --tw-gradient-from: rgb(var(--color-accent) / 1) var(--tw-gradient-from-position); --tw-gradient-to: rgb(var(--color-accent) / 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
 	.to-accent { --tw-gradient-to: rgb(var(--color-accent) / 1) var(--tw-gradient-to-position); }
+
+	/* 70/20/10 helper backgrounds */
+	.bg-70-20-10 { background: linear-gradient(90deg,
+		var(--color-primary-hex) 0%, var(--color-primary-hex) 70%,
+		var(--color-secondary-hex) 70%, var(--color-secondary-hex) 90%,
+		var(--color-accent-hex) 90%, var(--color-accent-hex) 100%
+	);
+	}
+	.bg-70-20-10-v { background: linear-gradient(180deg,
+		var(--color-primary-hex) 0%, var(--color-primary-hex) 70%,
+		var(--color-secondary-hex) 70%, var(--color-secondary-hex) 90%,
+		var(--color-accent-hex) 90%, var(--color-accent-hex) 100%
+	);
+	}
+
+	/* Buttons aligned to the palette */
+	.btn-primary { background-color: var(--color-primary-hex); color: #fff; }
+	.btn-primary:hover { background-color: var(--color-primary-600); }
+	.btn-secondary { background-color: var(--color-secondary-hex); color: #fff; }
+	.btn-secondary:hover { background-color: var(--color-secondary-600); }
+	.btn-accent { background-color: var(--color-accent-hex); color: #fff; }
+	.btn-accent:hover { background-color: var(--color-accent-600); }
+
+	/* Borders aligned to palette */
+	.border-surface { border-color: #e5e7eb; }
+	.border-muted { border-color: #edeef3; }
 }
 

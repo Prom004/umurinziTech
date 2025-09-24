@@ -27,16 +27,15 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="bg-secondary">
-    <div className='grid grid-cols-2 m-auto p-16'>
+  <div className="bg-secondary min-h-screen flex items-center">
+    <div className='w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-0 md:gap-8 p-4 md:p-8 lg:p-12'>
       {/* Left Side - Form */}
-      {/* <div className="flex items-center justify-center p-8"> */}
-        <div className="bg-white rounded-l-2xl shadow-xl p-8 w-full">
-          <h1 className="text-3xl font-bold text-gray-800 mb-8">Sign Up</h1>
+        <div className="bg-white rounded-t-2xl lg:rounded-tr-none lg:rounded-l-2xl shadow-xl p-6 md:p-8 w-full">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 md:mb-8">Sign Up</h1>
           
-          <div className="space-y-3">
+          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-3">
             {/* Name Fields */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   First Name
@@ -189,34 +188,33 @@ export default function SignupPage() {
               </svg>
               Sign in with Google
             </button>
-          </div>
+          </form>
         </div>
-      {/* </div> */}
 
       {/* Right Side - Illustration and Content */}
-      <div className="flex flex-col bg-gradient-to-br from-accent to-primary items-center justify-center text-white rounded-r-2xl">
-        <h2 className="text-2xl font-semibold mb-[40px] ml-[250px] flex justify-end items-end">UmirinziTech</h2>
-        <div className="max-w-lg text-center">
+      <div className="flex flex-col bg-gradient-to-br from-accent to-primary items-center justify-center text-white rounded-b-2xl lg:rounded-bl-none lg:rounded-r-2xl p-8 md:p-10">
+        <h2 className="w-full text-xl md:text-2xl font-semibold mb-6 text-center lg:text-right">UmirinziTech</h2>
+        <div className="w-full max-w-md text-center">
           {/* Brand Name */}
           
           {/* Illustration Area */}
-          <div className="mb-8">
+          <div className="mb-8 flex justify-center">
 
-            <img src={signUp} alt="" />
+            <img src={signUp} alt="Sign up illustration" className="w-full max-w-xs md:max-w-sm h-auto" />
           </div>
 
           {/* Main Heading */}
-          <h3 className="text-3xl font-bold mb-4">
+          <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">
             Protect What's Yours. Instantly.
           </h3>
 
           {/* Subheading */}
-          <p className="text-lg text-purple-100 mb-2">
+          <p className="text-base md:text-lg text-purple-100 mb-2">
             Your Smart Devices Deserve Smart Protection.
           </p>
 
           {/* Description */}
-          <p className="text-purple-200">
+          <p className="text-sm md:text-base text-purple-200">
             Stay ahead of theft and fraud with real-time tracking and verification.
           </p>
         </div>

@@ -46,37 +46,74 @@ export default function DeviceRow({ device }) {
       return icons[type.toLowerCase()] || icons.smartphone;
     };
   
-    return (
-      <div className="flex items-center justify-between py-4 px-6 border-b border-gray-100 hover:bg-gray-50 transition-colors">
-        <div className="flex items-center space-x-4 flex-1">
-          <div className="flex items-center space-x-3">
-            {getDeviceIcon(device.type)}
-            <div>
-              <h3 className="font-semibold text-gray-900">{device.name}</h3>
-              <p className="text-sm text-gray-500">{device.brand} • {device.color} • {device.storage}</p>
+  return (
+      <div className="py-4 px-4 sm:px-6 border-b border-gray-100 hover:bg-gray-50 transition-colors">
+        {/* Desktop row */}
+        <div className="hidden md:flex items-center justify-between">
+          <div className="flex items-center space-x-4 flex-1">
+            <div className="flex items-center space-x-3">
+              {getDeviceIcon(device.type)}
+              <div>
+                <h3 className="font-semibold text-gray-900">{device.name}</h3>
+                <p className="text-sm text-gray-500">{device.brand} • {device.color} • {device.storage}</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="flex items-center space-x-8 text-sm">
+            <div className="text-gray-700 font-medium w-20 text-center">{device.type}</div>
+            <div className="text-gray-700 font-medium w-32 text-center">{device.imei}</div>
+            <div className="w-24 text-center">
+              {getStatusBadge(device.status)}
+            </div>
+            <div className="text-gray-600 w-28 text-center">{device.dateRegistered}</div>
+            <div className="flex space-x-2 w-28 justify-center">
+              <select
+                defaultValue={'view'}
+                className="px-4 py-2 border border-gray-300 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all duration-200 bg-white"
+              >
+                <option value="view">View</option>
+                <option value="edit">Edit</option>
+                <option value="delete">Delete</option>
+                <option value="transfer">Transfer</option>
+              </select>
             </div>
           </div>
         </div>
-        
-        <div className="flex items-center space-x-8 text-sm">
-          <div className="text-gray-700 font-medium w-20 text-center">{device.type}</div>
-          <div className="text-gray-700 font-medium w-32 text-center">{device.imei}</div>
-          <div className="w-24 text-center">
-            {getStatusBadge(device.status)}
-          </div>
-          <div className="text-gray-600 w-28 text-center">{device.dateRegistered}</div>
-          <div className="flex space-x-2 w-28 justify-center">
-          <select
-                  value={device.action}
-                  onChange={(e) => device.action = e.target.value}
-                  className="px-4 py-3 border border-gray-300 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all duration-200 bg-white"
+
+        {/* Mobile card */}
+        <div className="md:hidden">
+          <div className="flex items-start space-x-3">
+            {getDeviceIcon(device.type)}
+            <div className="flex-1">
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold text-gray-900">{device.name}</h3>
+                {getStatusBadge(device.status)}
+              </div>
+              <p className="text-sm text-gray-500">{device.brand} • {device.color} • {device.storage}</p>
+              <div className="mt-3 grid grid-cols-2 gap-2 text-sm">
+                <div className="text-gray-600">
+                  <span className="text-gray-500">Type: </span>{device.type}
+                </div>
+                <div className="text-gray-600">
+                  <span className="text-gray-500">Date: </span>{device.dateRegistered}
+                </div>
+                <div className="col-span-2 text-gray-600 truncate">
+                  <span className="text-gray-500">IMEI: </span>{device.imei}
+                </div>
+              </div>
+              <div className="mt-3">
+                <select
+                  defaultValue={'view'}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all duration-200 bg-white"
                 >
-                  <option>View</option>
+                  <option value="view">View</option>
                   <option value="edit">Edit</option>
                   <option value="delete">Delete</option>
                   <option value="transfer">Transfer</option>
                 </select>
-            
+              </div>
+            </div>
           </div>
         </div>
       </div>
