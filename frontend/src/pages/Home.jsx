@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import heroImage from '../assets/img/hero-image.png'
-import { BsBank, BsCart4 } from "react-icons/bs";
 import { Shield, Building, Users, Eye, ChevronRight, Menu, X, Lock, Search, FileText, AlertTriangle, User, ShoppingCart } from 'lucide-react';
 
 const Home = () => {
@@ -14,7 +13,7 @@ const Home = () => {
       content: "Protect your personal devices by registering them and reporting them if lost or stolen. Secure proof of ownership."
     },
     {
-      icon: <BsBank className="w-8 h-8" />,
+      icon: <Building className="w-8 h-8" />,
       title: "For Institutions",
       content: "Manage all organizational devices efficiently. Track ownership, transfers, and maintain comprehensive device inventory."
     },
@@ -24,7 +23,7 @@ const Home = () => {
       content: "Quickly verify device ownership, track stolen items, and accelerate investigation processes with reliable data."
     },
     {
-      icon: <BsCart4 className="w-8 h-8" />,
+      icon: <ShoppingCart className="w-8 h-8" />,
       title: "For Buyers",
       content: "Verify device legitimacy before purchase. Check if a device is reported stolen and ensure safe transactions."
     }
@@ -100,37 +99,37 @@ const Home = () => {
       
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white space-y-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="text-white space-y-6 sm:space-y-8">
               <div className="space-y-4">
-                <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
                   Secure Your Devices.
                 </h1>
-                <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                   Empower Institutions.
                 </h2>
-                <h3 className="text-4xl lg:text-5xl font-bold leading-tight">
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                   Assist Investigations.
                 </h3>
               </div>
               
-              <p className="text-xl text-purple-100 max-w-lg">
+              <p className="text-base sm:text-lg lg:text-xl text-purple-100 max-w-lg">
                 Register, track, and verify devices; discover device history and get comprehensive information about any device on our platform.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 hover:text-black transition-colors">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <button className="btn-primary text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-colors">
                   Register your device
                 </button>
-                <button className="border-2 border-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                <button className="btn-secondary text-on-secondary px-6 sm:px-8 py-3 rounded-lg font-semibold transition-colors">
                   We're a lifestyle
                 </button>
               </div>
             </div>
             
             <div className="relative">
-              <img src={heroImage} alt="Hero Image" />
+              <img src={heroImage} alt="Hero Image" className="w-full max-w-md sm:max-w-lg lg:max-w-none mx-auto" />
               {/* <div className="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent rounded-xl"></div> */}
             </div>
           </div>
@@ -138,10 +137,10 @@ const Home = () => {
       </div>
 
       {/* Key Benefits Section */}
-      <div className="bg-white py-24">
+      <div className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Key Benefits</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-10 sm:mb-12 lg:mb-16">Key Benefits</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="text-center space-y-4 bg-[#F7FBFD] p-3 rounded-2xl sh">
                 <div className="bg-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto text-white">
@@ -156,13 +155,13 @@ const Home = () => {
       </div>
 
       {/* How it Works Section */}
-      <div className="bg-gray-50 py-24" id='how-it-works'>
+      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24" id='how-it-works'>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">How It Works</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-10 sm:mb-12 lg:mb-16">How It Works</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {howItWorks.map((step, index) => (
               <div key={index} className="text-center space-y-4">
-                <div className="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto text-xl font-bold">
+                <div className="bg-primary text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mx-auto text-lg sm:text-xl font-bold">
                   {step.step}
                 </div>
                 <h3 className="font-semibold text-gray-900">{step.title}</h3>
@@ -174,10 +173,10 @@ const Home = () => {
       </div>
 
       {/* Who Can Use Section */}
-      <div className="bg-white py-24" id='services'>
+      <div className="bg-white py-16 sm:py-20 lg:py-24" id='services'>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Who Can Use This Platform?</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-10 sm:mb-12 lg:mb-16">Who Can Use This Platform?</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {whoCanUse.map((category, index) => (
               <div key={index} className="bg-gray-50 p-6 rounded-xl">
                 <h3 className="font-bold text-lg text-gray-900 mb-4">{category.category}</h3>
@@ -196,10 +195,10 @@ const Home = () => {
       </div>
 
       {/* Success Stories Section */}
-        <div className="bg-gray-50 py-24">
+        <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Success Stories</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-10 sm:mb-12 lg:mb-16">Success Stories</h2>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {successStories.map((story, index) => (
                 <div
                 key={index}

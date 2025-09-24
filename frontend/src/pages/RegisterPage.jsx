@@ -358,13 +358,13 @@ const RegisterPage = () => {
                 <div className="flex flex-col sm:flex-row justify-end gap-3 sm:gap-4 pt-4 sm:pt-6">
                   <button
                     type="button"
-                    className="px-6 py-3 text-gray-600 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors duration-200 font-medium w-full sm:w-auto"
+                    className="px-6 py-3 text-gray-700 bg-surface-muted rounded-xl hover:bg-gray-200 transition-colors duration-200 font-medium w-full sm:w-auto"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl hover:from-indigo-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 font-medium shadow-lg hover:shadow-xl w-full sm:w-auto"
+                    className="px-8 py-3 btn-primary text-white rounded-xl transform hover:scale-105 transition-all duration-200 font-medium shadow-lg hover:shadow-xl w-full sm:w-auto"
                   >
                     Submit Registration
                   </button>

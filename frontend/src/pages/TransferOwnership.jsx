@@ -39,23 +39,23 @@ export default function TransferOwnership() {
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar activeItem="transfer" />
-      <div className="flex-1 ml-0 md:ml-72 p-4 md:p-8">
+      <div className="flex-1 ml-0 md:ml-72 p-4 sm:p-6 md:p-8">
         {/* Header Section */}
-        <div className="mb-8">
-          <div className="flex items-center mb-4">
-            <ArrowLeftRight className="w-8 h-8 text-primary mr-3" />
-            <h1 className="text-3xl font-bold text-gray-900">Transfer Device Ownership</h1>
+        <div className="mb-4 sm:mb-6 md:mb-8">
+          <div className="flex items-center mb-3 sm:mb-4">
+            <ArrowLeftRight className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary mr-2 sm:mr-3" />
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Transfer Device Ownership</h1>
           </div>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg">
             Securely transfer ownership of your registered device to another verified Rinda user. 
             Once transferred, you will no longer be responsible for the device.
           </p>
         </div>
 
         {/* Main Form */}
-        <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
+        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8">
           <div className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-2">Device Ownership Transfer</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2">Device Ownership Transfer</h2>
             <p className="text-gray-600">Transfer your device safely and securely</p>
           </div>
 
@@ -76,7 +76,7 @@ export default function TransferOwnership() {
             </div>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {/* Device Selection */}
             <div>
               <label className="flex items-center text-sm font-medium text-gray-700 mb-3">
@@ -104,7 +104,7 @@ export default function TransferOwnership() {
                 Recipient Information
               </h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Recipient Email Address *
@@ -131,8 +131,8 @@ export default function TransferOwnership() {
                 </div>
               </div>
               
-              <div className="mt-4">
-                <button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center">
+              <div className="mt-3 sm:mt-4">
+                <button className="btn-primary text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center w-full sm:w-auto justify-center">
                   <Search className="w-4 h-4 mr-2" />
                   Verify Recipient
                 </button>
@@ -172,7 +172,7 @@ export default function TransferOwnership() {
                 Upload Transfer Agreement or Proof of Sale (Optional)
               </h3>
               
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-primary transition-colors">
+              <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 sm:p-8 text-center hover:border-primary transition-colors">
                 {uploadedFile ? (
                   <div className="flex items-center justify-center space-x-4">
                     <FileText className="w-8 h-8 text-green-500" />
@@ -239,7 +239,7 @@ export default function TransferOwnership() {
             </div>
 
             {/* Confirmation Checkbox */}
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 sm:p-6">
               <div className="flex items-start">
                 <input
                   type="checkbox"
@@ -256,12 +256,12 @@ export default function TransferOwnership() {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex justify-end space-x-4 pt-6 border-t border-gray-200">
-              <button className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+            <div className="flex flex-col sm:flex-row justify-end gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-gray-200">
+              <button className="px-6 py-3 border border-surface text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors w-full sm:w-auto bg-surface">
                 Cancel & Return
               </button>
               <button 
-                className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn-primary text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
                 disabled={!selectedDevice || !recipientEmail || !isConfirmed}
               >
                 <ArrowLeftRight className="w-4 h-4 mr-2" />

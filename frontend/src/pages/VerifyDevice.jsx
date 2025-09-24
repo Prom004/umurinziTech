@@ -27,13 +27,13 @@ export default function VerifyDevice() {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+  <div className="flex min-h-screen bg-gray-50">
       <Sidebar activeItem="verify" />
       <div className="flex-1 ml-0 md:ml-72">
-      <div className="p-4">
-        <div className="bg-white/95 backdrop-blur-lg rounded-2xl p-8 mb-8 shadow-xl">
-          <h1 className="text-3xl font-bold text-gray-900 mb-3 flex items-center">
-            <span className="mr-3"> <BadgeCheck className='w-8 h8'/>
+      <div className="p-4 sm:p-6">
+        <div className="bg-white/95 backdrop-blur-lg rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8 shadow-xl">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 flex items-center">
+            <span className="mr-3"> <BadgeCheck className='w-7 h-7 sm:w-8 sm:h-8'/>
             </span>
             Verify Device
           </h1>
@@ -42,18 +42,18 @@ export default function VerifyDevice() {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-1 p-4 xl:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 p-4 sm:p-6 xl:grid-cols-3 gap-6 xl:gap-8">
           {/* Form Section */}
           <div className="xl:col-span-2">
-            <div className="bg-white/95 backdrop-blur-lg rounded-2xl p-8 shadow-xl">
-              <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="bg-white/95 backdrop-blur-lg rounded-2xl p-6 sm:p-8 shadow-xl">
+              <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
                 
                 {/* Device Information */}
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-6 pb-2 border-b-2 border-gray-200">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6 pb-2 border-b-2 border-gray-200">
                     Device Information
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         IMEI / Serial Number <span className="text-red-500">*</span>
@@ -121,10 +121,10 @@ export default function VerifyDevice() {
 
                 {/* Purchase Details */}
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-6 pb-2 border-b-2 border-gray-200">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6 pb-2 border-b-2 border-gray-200">
                     Purchase Details
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Year of Purchase <span className="text-red-500">*</span>
@@ -190,16 +190,16 @@ export default function VerifyDevice() {
                 </div>
 
                 {/* Buttons */}
-                <div className="flex justify-end space-x-4 pt-6">
+                <div className="flex flex-col sm:flex-row justify-end gap-3 sm:gap-4 pt-4 sm:pt-6">
                   <button
                     type="button"
-                    className="px-6 py-3 text-gray-600 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors duration-200 font-medium"
+                    className="px-6 py-3 text-gray-700 bg-surface-muted rounded-xl hover:bg-gray-200 transition-colors duration-200 font-medium w-full sm:w-auto"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl hover:from-indigo-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 font-medium shadow-lg hover:shadow-xl"
+                    className="px-8 py-3 btn-primary text-white rounded-xl transform hover:scale-105 transition-all duration-200 font-medium shadow-lg hover:shadow-xl w-full sm:w-auto"
                   >
                     Submit Registration
                   </button>
@@ -209,7 +209,7 @@ export default function VerifyDevice() {
           </div>
 
           {/* Info Panel */}
-          <div className="xl:col-span-1">
+          <div className="xl:col-span-1 order-first xl:order-none">
             <InfoPanel />
           </div>
       </div>

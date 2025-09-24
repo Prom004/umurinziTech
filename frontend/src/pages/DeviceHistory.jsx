@@ -91,10 +91,10 @@ export default function DeviceHistory() {
 
             {/* Optional: Quick access buttons */}
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-2 sm:gap-3 w-full max-w-sm">
-              <button className="flex-1 px-4 py-2.5 text-sm sm:text-base bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl transition-colors font-medium">
+              <button className="flex-1 px-4 py-2.5 text-sm sm:text-base bg-surface-muted hover:bg-gray-200 text-gray-700 rounded-xl transition-colors font-medium">
                 View All Devices
               </button>
-              <button className="flex-1 px-4 py-2.5 text-sm sm:text-base bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-colors font-medium">
+              <button className="flex-1 px-4 py-2.5 text-sm sm:text-base btn-primary text-white rounded-xl transition-colors font-medium">
                 Register Device
               </button>
             </div>

@@ -159,8 +159,8 @@ export default function HelpSupport() {
                   <button 
                     className={`w-full sm:w-auto px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-lg transition-colors ${
                       action.available 
-                        ? `${action.color} text-white` 
-                        : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                        ? `btn-primary text-white` 
+                        : 'bg-surface-muted text-gray-400 cursor-not-allowed'
                     }`}
                     disabled={!action.available}
                   >

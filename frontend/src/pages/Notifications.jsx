@@ -124,7 +124,7 @@ export default function Notifications() {
             {unreadCount > 0 && (
               <button
                 onClick={markAllAsRead}
-                className="w-full sm:w-auto px-4 py-2 text-sm bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium transition-colors"
+                className="w-full sm:w-auto px-4 py-2 text-sm btn-primary text-white rounded-xl font-medium transition-colors"
               >
                 Mark All as Read
               </button>

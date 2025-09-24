@@ -156,12 +156,12 @@ export default function Sidebar({ activeItem = "register" }) {
 
       {/* Sidebar */}
       <div
-        className={`fixed left-0 top-0 z-40 w-72 h-screen bg-primary shadow-xl transform ${
+        className={`fixed left-0 top-0 z-40 w-72 h-screen bg-[#F4F4FF] shadow-xl transform ${
           isMobileOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col group`}
       >
         {/* Logo */}
-        <div className="flex items-center bg-white justify-center py-8 px-3 border-b border-gray-700">
+        <div className="flex items-center bg-white justify-center py-8 px-3 border-b border-gray-500">
           <div className="flex items-center space-x-3">
             <img src={logo} alt="Logo" className="w-16 h-12" />
           </div>
@@ -176,7 +176,7 @@ export default function Sidebar({ activeItem = "register" }) {
           <div className="py-6">
             {navSections.map((section, sectionIndex) => (
               <div key={sectionIndex} className="mb-8">
-                <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-6 mb-3">
+                <h3 className="text-xs font-semibold text-gray-900 uppercase tracking-wider px-6 mb-3">
                   {section.title}
                 </h3>
                 <div className="space-y-1">
@@ -186,8 +186,8 @@ export default function Sidebar({ activeItem = "register" }) {
                       to={item.href}
                       className={`flex items-center px-6 py-3 text-sm font-medium transition-colors duration-200 ${
                         currentPath === item.href
-                          ? "bg-gray-700 text-white shadow-lg"
-                          : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                          ? "bg-[#343264] text-white shadow-lg"
+                          : "text-gray-900 hover:bg-[#343264] hover:text-white"
                       }`}
                     >
                       <span className="mr-3 text-lg">{item.icon}</span>

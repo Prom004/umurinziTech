@@ -57,11 +57,11 @@ export default function Dashboard() {
   return (
     <div className="flex min-h-screen bg-gray-100">
       <Sidebar activeItem="dashboard" />
-      <div className="flex-1 ml-0 md:ml-72 p-4 md:p-8">
+      <div className="flex-1 ml-0 md:ml-72 p-4 sm:p-6 md:p-8">
         {/* Header Section */}
-        <div className="mb-6 md:mb-8">
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2">Device Dashboard</h1>
-          <p className="text-base md:text-lg text-gray-600">Monitor and manage all your tracking devices in real-time.</p>
+        <div className="mb-4 sm:mb-6 md:mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">Device Dashboard</h1>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600">Monitor and manage all your tracking devices in real-time.</p>
         </div>
 
         {/* Summary Cards */}
@@ -80,34 +80,34 @@ export default function Dashboard() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {/* Device Location Section */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-xl shadow-lg p-4 md:p-6">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 md:mb-6 gap-4">
-                <h2 className="text-lg md:text-xl font-semibold text-gray-900">Device Location</h2>
+            <div className="bg-white rounded-xl shadow-lg p-4 sm:p-5 md:p-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 md:mb-6 gap-3 sm:gap-4">
+                <h2 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900">Device Location</h2>
                 <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center">
                   <MapPin className="w-4 h-4 mr-2" />
                   View Full map
                 </button>
               </div>
-              <div className="bg-gray-100 rounded-lg h-48 md:h-64 flex items-center justify-center">
+              <div className="bg-gray-100 rounded-lg h-44 sm:h-48 md:h-64 flex items-center justify-center">
                 <div className="text-center text-gray-500">
-                  <MapPin className="w-8 h-8 md:w-12 md:h-12 mx-auto mb-2" />
-                  <p className="text-sm md:text-base">Map will be displayed here</p>
+                  <MapPin className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mx-auto mb-2" />
+                  <p className="text-xs sm:text-sm md:text-base">Map will be displayed here</p>
                 </div>
               </div>
             </div>
 
             {/* Your Devices Section */}
-            <div className="bg-white w-full rounded-xl shadow-lg p-4 md:p-6 mt-6 md:mt-8">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 md:mb-6 gap-4">
-                <h2 className="text-lg md:text-xl font-semibold text-gray-900">Your Devices</h2>
+            <div className="bg-white w-full rounded-xl shadow-lg p-4 sm:p-5 md:p-6 mt-4 sm:mt-6 md:mt-8">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 md:mb-6 gap-3 sm:gap-4">
+                <h2 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900">Your Devices</h2>
                 <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
                   View More
                 </button>
               </div>
-              <div className="space-y-3 md:space-y-4">
+              <div className="space-y-3 sm:space-y-3 md:space-y-4">
                 {devices.map((device) => (
                   <div key={device.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 md:p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow gap-3">
                     <div className="flex items-center space-x-3 md:space-x-4">
