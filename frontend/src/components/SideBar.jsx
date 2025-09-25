@@ -10,7 +10,6 @@ export default function Sidebar({ activeItem = "register" }) {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // Save scroll position before component unmounts or re-renders
   useEffect(() => {
     const saveScrollPosition = () => {
       if (scrollableRef.current) {
