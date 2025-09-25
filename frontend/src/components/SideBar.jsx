@@ -170,7 +170,7 @@ export default function Sidebar({ activeItem = "register" }) {
         {/* Navigation (scrollable inside sidebar only) */}
         <div 
           ref={scrollableRef}
-          className="flex-1 overflow-hidden group-hover:overflow-y-auto"
+          className="flex-1 overflow-y-auto md:overflow-hidden md:group-hover:overflow-y-auto"
           style={{ scrollBehavior: 'auto' }} // Disable smooth scrolling when restoring position
         >
           <div className="py-6">
