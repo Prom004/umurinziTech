@@ -16,33 +16,26 @@ import ProfileSettings from './pages/ProfileSettings'
 import Notifications from './pages/Notifications'
 import HelpSupport from './pages/HelpSupport'
 
-// Component to handle conditional rendering of Header and Footer
 function Layout({ children }) {
   const location = useLocation();
   
-  // Define routes where Header and Footer should be hidden
   const hideHeaderFooterRoutes = ['/login', '/signup', '/registerDevice', '/myDevices', '/dashboard', '/verifyDevice', '/transferOwnership', '/reportLostStolen', '/deviceHistory', '/profileSettings', '/notifications', '/helpSupport', '/logout'];
   
-  // Check if current route should hide header/footer
   const shouldHideHeaderFooter = hideHeaderFooterRoutes.includes(location.pathname);
 
   return (
     <>
-      {/* Conditionally render Header */}
       {!shouldHideHeaderFooter && <Header />}
       
-      {/* Main content with conditional padding */}
       <div className={`min-h-screen bg-white ${!shouldHideHeaderFooter ? 'pt-16' : ''}`}>
         {children}
       </div>
       
-      {/* Conditionally render Footer */}
       {!shouldHideHeaderFooter && <Footer />}
     </>
   );
 }
 
-// ScrollToAnchor component for handling anchor links
 function ScrollToAnchor() {
   const location = useLocation();
   

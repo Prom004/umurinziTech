@@ -22,6 +22,7 @@ export default function HelpSupport() {
   const [expandedFaq, setExpandedFaq] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('all');
 
+  // this data could be loaded from a database
   const faqData = [
     {
       id: 1,
@@ -61,6 +62,7 @@ export default function HelpSupport() {
     }
   ];
 
+  // this data could be loaded from a database
   const categories = [
     { id: 'all', name: 'All Topics', icon: Book },
     { id: 'registration', name: 'Device Registration', icon: Smartphone },
@@ -69,6 +71,7 @@ export default function HelpSupport() {
     { id: 'account', name: 'Account', icon: FileText }
   ];
 
+  // this data could be loaded from a database
   const quickActions = [
     {
       title: 'Live Chat',
@@ -97,6 +100,7 @@ export default function HelpSupport() {
     }
   ];
 
+  // this data could be loaded from a database
   const resources = [
     { title: 'User Guide', description: 'Complete guide to using the platform', icon: Book },
     { title: 'Video Tutorials', description: 'Step-by-step video instructions', icon: FileText },
