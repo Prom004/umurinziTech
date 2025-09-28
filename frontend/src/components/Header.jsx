@@ -25,7 +25,7 @@ export default function Header({ transparent = false }) {
         { id: 'about', label: 'About Us', href: '/#about', type: 'section' },
         { id: 'services', label: 'Services', href: '/#services', type: 'section' },
         { id: 'how-it-works', label: 'How It Works', href: '/#how-it-works', type: 'section' },
-        { id: 'registerDevices', label: 'Register Device', href: '/registerDevice', type: 'route' },
+        // { id: 'registerDevices', label: 'Register Device', href: '/registerDevice', type: 'route' }, 
     ];
 
     // Function to handle navigation to sections

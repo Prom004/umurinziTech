@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import ProtectedRoute from './components/ProtectedRoute'
+import { AuthProvider } from './contexts/AuthContext'
 import Home from './pages/Home'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
@@ -15,11 +17,12 @@ import DeviceHistory from './pages/DeviceHistory'
 import ProfileSettings from './pages/ProfileSettings'
 import Notifications from './pages/Notifications'
 import HelpSupport from './pages/HelpSupport'
+import UserGuide from './pages/UserGuide'
 
 function Layout({ children }) {
   const location = useLocation();
   
-  const hideHeaderFooterRoutes = ['/login', '/signup', '/registerDevice', '/myDevices', '/dashboard', '/verifyDevice', '/transferOwnership', '/reportLostStolen', '/deviceHistory', '/profileSettings', '/notifications', '/helpSupport', '/logout'];
+  const hideHeaderFooterRoutes = ['/login', '/signup', '/registerDevice', '/myDevices', '/dashboard', '/verifyDevice', '/transferOwnership', '/reportLostStolen', '/deviceHistory', '/profileSettings', '/notifications', '/helpSupport', '/userGuide', '/logout'];
   
   const shouldHideHeaderFooter = hideHeaderFooterRoutes.includes(location.pathname);
 
@@ -60,26 +63,76 @@ function ScrollToAnchor() {
 
 function App() {
   return (
-    <Router>
-      <Layout>
-        <ScrollToAnchor />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/signup' element={<SignupPage />} />
-          <Route path='/registerDevice' element={<RegisterPage />} />
-          <Route path='/myDevices' element={<MyDevices />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/verifyDevice' element={<VerifyDevice />} />
-          <Route path='/transferOwnership' element={<TransferOwnership />} />
-          <Route path='/reportLostStolen' element={<ReportLostStolen />} />
-          <Route path='/deviceHistory' element={<DeviceHistory />} />
-          <Route path='/profileSettings' element={<ProfileSettings />} />
-          <Route path='/notifications' element={<Notifications />} />
-          <Route path='/helpSupport' element={<HelpSupport />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Layout>
+          <ScrollToAnchor />
+          <Routes>
+            {/* Public Routes */}
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<LoginPage />} />
+            <Route path='/signup' element={<SignupPage />} />
+            
+            {/* Protected Routes - Require Institution Authentication */}
+            <Route path='/registerDevice' element={
+              <ProtectedRoute>
+                <RegisterPage />
+              </ProtectedRoute>
+            } />
+            <Route path='/myDevices' element={
+              <ProtectedRoute>
+                <MyDevices />
+              </ProtectedRoute>
+            } />
+            <Route path='/dashboard' element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
+            <Route path='/verifyDevice' element={
+              <ProtectedRoute>
+                <VerifyDevice />
+              </ProtectedRoute>
+            } />
+            <Route path='/transferOwnership' element={
+              <ProtectedRoute>
+                <TransferOwnership />
+              </ProtectedRoute>
+            } />
+            <Route path='/reportLostStolen' element={
+              <ProtectedRoute>
+                <ReportLostStolen />
+              </ProtectedRoute>
+            } />
+            <Route path='/deviceHistory' element={
+              <ProtectedRoute>
+                <DeviceHistory />
+              </ProtectedRoute>
+            } />
+            <Route path='/profileSettings' element={
+              <ProtectedRoute>
+                <ProfileSettings />
+              </ProtectedRoute>
+            } />
+            <Route path='/notifications' element={
+              <ProtectedRoute>
+                <Notifications />
+              </ProtectedRoute>
+            } />
+            <Route path='/helpSupport' element={
+              <ProtectedRoute>
+                <HelpSupport />
+              </ProtectedRoute>
+            } />
+            <Route path='/userGuide' element={
+              <ProtectedRoute>
+                <UserGuide />
+              </ProtectedRoute>
+            } />
+          </Routes>
+        </Layout>
+      </Router>
+    </AuthProvider>
   )
 }
 

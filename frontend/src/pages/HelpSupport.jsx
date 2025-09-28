@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/SideBar';
 import { 
   HelpCircle, 
@@ -21,6 +22,7 @@ export default function HelpSupport() {
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedFaq, setExpandedFaq] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const navigate = useNavigate();
 
   // this data could be loaded from a database
   const faqData = [
@@ -102,10 +104,10 @@ export default function HelpSupport() {
 
   // this data could be loaded from a database
   const resources = [
-    { title: 'User Guide', description: 'Complete guide to using the platform', icon: Book },
-    { title: 'Video Tutorials', description: 'Step-by-step video instructions', icon: FileText },
-    { title: 'Device Database', description: 'Browse supported devices', icon: Smartphone },
-    { title: 'Security Best Practices', description: 'Keep your devices secure', icon: Shield }
+    { title: 'User Guide', description: 'Complete guide to using the platform', icon: Book, href: '/userGuide' },
+    { title: 'Video Tutorials', description: 'Step-by-step video instructions', icon: FileText, href: '#' },
+    { title: 'Device Database', description: 'Browse supported devices', icon: Smartphone, href: '#' },
+    { title: 'Security Best Practices', description: 'Keep your devices secure', icon: Shield, href: '#' }
   ];
 
   const filteredFaqs = faqData.filter(faq => {
@@ -286,6 +288,11 @@ export default function HelpSupport() {
               {resources.map((resource, index) => (
                 <button
                   key={index}
+                  onClick={() => {
+                    if (resource.href && resource.href !== '#') {
+                      navigate(resource.href);
+                    }
+                  }}
                   className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 border border-gray-200 rounded-xl hover:border-indigo-300 hover:bg-indigo-50/50 transition-all duration-200 text-left group"
                 >
                   <div className="w-10 h-10 bg-gray-100 group-hover:bg-indigo-100 rounded-lg flex items-center justify-center transition-colors">
@@ -318,7 +325,7 @@ export default function HelpSupport() {
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center items-center text-sm">
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
-                <span>support@deviceregistry.com</span>
+                <span>umurinziTech@dreamweavers.com</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />

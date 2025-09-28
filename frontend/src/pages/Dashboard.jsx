@@ -3,6 +3,7 @@ import Sidebar from '../components/SideBar';
 import { MapPin, Clock, Battery, Wifi, Eye } from 'lucide-react';
 
 export default function Dashboard() {
+  
   const stats = [
     { id: 1, icon: "📱", label: "Active Cases", num: 23 },
     { id: 2, icon: "📱", label: "Active Cases", num: 23 },

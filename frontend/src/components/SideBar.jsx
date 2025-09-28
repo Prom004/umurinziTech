@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import logo from "../assets/img/logo.png";
 import { Menu, Settings, Bell, HelpingHand, Recycle, LogOut, History, Siren, Verified, List, PhoneIcon } from "lucide-react";
 
@@ -8,7 +9,14 @@ export default function Sidebar({ activeItem = "register" }) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const scrollableRef = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { logout, user } = useAuth();
   const currentPath = location.pathname;
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
 
   useEffect(() => {
     const saveScrollPosition = () => {
@@ -137,7 +145,7 @@ export default function Sidebar({ activeItem = "register" }) {
     },
     {
       title: "SYSTEM",
-      items: [{ id: "logout", icon: <LogOut />, label: "Logout", href: "/logout" }],
+      items: [{ id: "logout", icon: <LogOut />, label: "Logout", href: "#", onClick: handleLogout }],
     },
   ];
 
@@ -146,9 +154,9 @@ export default function Sidebar({ activeItem = "register" }) {
       {/* mobile Menu */}
       <button
         onClick={() => setIsMobileOpen(!isMobileOpen)}
-        className="md:hidden fixed top-4 left-4 z-50 bg-white rounded-lg p-2 shadow-lg"
+        className="md:hidden fixed top-4 left-4 z-50 bg-white rounded-lg p-2 shadow-lg border border-gray-200"
       >
-        <span className="text-xl">
+        <span className="text-xl text-gray-900">
           <Menu />
         </span>
       </button>
@@ -160,9 +168,9 @@ export default function Sidebar({ activeItem = "register" }) {
         } md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col group`}
       >
         {/* Logo */}
-        <div className="flex items-center bg-white justify-center py-8 px-3 border-b border-gray-500">
-          <div className="flex items-center space-x-3">
-            <img src={logo} alt="Logo" className="w-16 h-12" />
+        <div className="flex items-center bg-white justify-center p-6 border-b border-gray-500">
+          <div className="flex items-center">
+            <img src={logo} alt="Logo" className="w-16 h-16" />
           </div>
         </div>
 
@@ -179,29 +187,50 @@ export default function Sidebar({ activeItem = "register" }) {
                   {section.title}
                 </h3>
                 <div className="space-y-1">
-                  {section.items.map((item) => (
-                    <Link
-                      key={item.id}
-                      to={item.href}
-                      className={`flex items-center px-6 py-3 text-sm font-medium transition-colors duration-200 ${
-                        currentPath === item.href
-                          ? "bg-[#343264] text-white shadow-lg"
-                          : "text-gray-900 hover:bg-[#343264] hover:text-white"
-                      }`}
-                    >
-                      <span className="mr-3 text-lg">{item.icon}</span>
-                      <span className="flex-1">{item.label}</span>
-                      {item.badge && (
-                        <span className="ml-2 px-2 py-1 text-xs bg-green-500 text-white rounded-full">
-                          {item.badge}
-                        </span>
-                      )}
-                    </Link>
-                  ))}
+                  {section.items.map((item) => {
+                    if (item.onClick) {
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={item.onClick}
+                          className="w-full flex items-center px-6 py-3 text-sm font-medium transition-colors duration-200 text-gray-900 hover:bg-[#343264] hover:text-white text-left"
+                        >
+                          <span className="mr-3 text-lg">{item.icon}</span>
+                          <span className="flex-1">{item.label}</span>
+                          {item.badge && (
+                            <span className="ml-2 px-2 py-1 text-xs bg-green-500 text-white rounded-full">
+                              {item.badge}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    }
+                    
+                    return (
+                      <Link
+                        key={item.id}
+                        to={item.href}
+                        className={`flex items-center px-6 py-3 text-sm font-medium transition-colors duration-200 ${
+                          currentPath === item.href
+                            ? "bg-[#343264] text-white shadow-lg"
+                            : "text-gray-900 hover:bg-[#343264] hover:text-white"
+                        }`}
+                      >
+                        <span className="mr-3 text-lg">{item.icon}</span>
+                        <span className="flex-1">{item.label}</span>
+                        {item.badge && (
+                          <span className="ml-2 px-2 py-1 text-xs bg-green-500 text-white rounded-full">
+                            {item.badge}
+                          </span>
+                        )}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             ))}
           </div>
+          
         </div>
       </div>
 
